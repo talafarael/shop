@@ -1,27 +1,28 @@
-import {PayloadAction, createSlice} from "@reduxjs/toolkit"
-import {IUser} from "../../model/IUsers"
 
-interface userState {
-	users: IUser[]
-	isLoading: boolean
-	error: string
-	count: number
+import { createSlice } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+
+import { IProducts } from '../../components/type/shop'
+
+export interface CounterState {
+  value:IProducts[]
 }
 
-const initialState: userState = {
-	users: [],
-	isLoading: false,
-	error: "",
-	count: 0,
+const initialState: CounterState = {
+  value: [],
 }
-export const userSlice = createSlice({
-	name: "user",
-	initialState,
-	reducers: {
-		increment(state, actions: PayloadAction<number>) {
-			state.count += actions.payload
-		},
-	},
+
+export const productsSlice = createSlice({
+  name: 'products',
+  initialState,
+  reducers: {
+    addProducts: (state, action: PayloadAction<IProducts[]>) => {
+					state.value=action.payload
+    },
+ },
 })
 
-export default userSlice.reducer
+// Action creators are generated for each case reducer function
+export const { addProducts } = productsSlice.actions
+
+export default productsSlice.reducer
