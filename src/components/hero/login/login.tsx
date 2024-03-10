@@ -19,7 +19,7 @@ const Login: React.FC = () => {
 	const getUsername = (e: ChangeEvent<HTMLInputElement>) => {
 		setUsername(e.target.value)
 	}
-	return (
+	return ( 
 		<div className='flex flex-col justify-center items-center '>
 			<h1 className='mt-40 text-2xl  mr-60'>username:</h1>
 			<input

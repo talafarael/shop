@@ -3,6 +3,9 @@ import axios from "axios"
 type Ibody = {
 	username: string
 	password: string
+}|{
+	_id: string
+
 }
 
 interface PostFetchProps {
